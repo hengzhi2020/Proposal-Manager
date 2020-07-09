@@ -1,0 +1,94 @@
+/* LIST STYLES */
+
+  .table-container {
+    width: 83%;
+    height: 600px;
+    margin-left: 15px;
+    margin-right: 7px;
+    margin-top: -10px;
+  }
+  .deleted-title-show{
+    background-color:#fafac0;
+  }
+  .list-itmes{
+    background-color: green;;
+    border: 10px blue solid;
+  }
+
+  h2{
+    margin-left: 15px;
+  }
+
+  .table-content {
+    margin-left: 15px;
+  }
+  .table-head {
+    color: blue;
+  }
+  th{
+   width: 115px;
+   font-size:1.2rem;
+  }
+
+  .btn-submit{
+    background-color: blue;
+  }
+  .btn-update-hover{
+    height: 32px;
+    border-color: #cce0ff;
+    border-radius: 5px;
+  }
+  .btn-update-hover-deleted{
+    height: 32px;
+    border-radius: 5px;
+    border-color: #cce0ff;
+    text-decoration: underline line-through;
+  }
+  .btn-update-hover:hover{
+    background-color: #44ff33;
+  }
+  .btn-delete-hover{
+    height: 32px;
+    border-color: #cce0ff;
+    border-radius: 5px;
+  }
+  .btn-delete-hover-deleted{
+    height: 32px;
+    border-radius: 5px;    
+    border-color: #cce0ff;
+    text-decoration: underline line-through;
+  }
+  .btn-delete-hover:hover{
+    background-color: orange;
+  }
+  .btn-scoring-hover{
+    height: 32px;
+    border-radius: 5px;
+    border-color: #cce0ff;
+    background-color: #41e4c1;
+  }
+  .btn-scoring-disabled{
+    height: 32px;
+    border-radius: 5px;
+    background-color: #d8dddb;
+  }
+  .btn-scoring-hover-deleted{
+    height: 32px;
+    border-radius: 5px;
+    border-color: #cce0ff;
+    background-color: #d8dddb;
+    text-decoration: underline line-through;
+  }
+  .btn-scoring-hover:hover{
+    background-color: #eef744;
+  }
+  .btn-report-hover{
+    height: 32px;
+    border-radius: 5px;
+    color: white;
+    background-color: #3b53bb;
+  }
+  .btn-report-hover:hover{
+    color: black;
+    background-color: white;
+  }

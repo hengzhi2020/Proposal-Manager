@@ -1,0 +1,105 @@
+/* CARD STYLES */
+  
+.Card {
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(172, 209, 5, 0.25);
+    padding: 8px;
+    color: #17394d;
+    margin-bottom: 10px;
+  }
+
+  .Card-search {
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    padding: 8px;
+    padding-top: 15px;
+    color: #17394d;
+    margin-top: 10px;
+    height: 190px;
+  }
+  
+  .Card h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .Card p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  .Card button {
+    float: right;
+    background-color: #49da6d;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+   #btn-search {
+    background-color:rgb(125, 235, 125);
+    border-radius: 5px;
+    border-color: #cce0ff;
+    font-size: 16px;
+    color: black;
+    margin-top:15px;
+    margin-left:0px;
+    margin-right:10px;
+    padding:5px 10px;
+    position:relative;
+    left:0px;
+  }
+  #orBetweenSearch{
+    margin-top: -7px;
+    margin-bottom: 8px;
+    font-size: 1.0rem;
+  }
+  #btn-display {
+    position: relative;
+    float: left;
+    background-color: #5137af;
+    border-radius: 5px;
+    border-color: #cce0ff;
+    font-size: 16px;
+    color: white;
+    margin:5px;
+    margin-left:0px;
+    padding:5px 10px;
+  }
+  #btn-create {
+    float: left;
+    display: block;
+    background-color:green;
+    border-radius: 5px;
+    border-color: #cce0ff;
+    font-size: 16px;
+    color: white;
+    margin:5px;
+    margin-left:12px;
+    padding:5px 10px;
+
+  }
+
+  .createcard{
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    padding: 8px;    
+    padding-left:0px;  
+    color: #17394d;
+    margin-bottom: 10px;
+    height: 60px;
+  }
+  .gohomepagecard{
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    padding: 8px;
+    color: #17394d;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+  }
+
+
+  

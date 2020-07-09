@@ -1,0 +1,82 @@
+body{
+  background: #0079bf;
+}
+.App {
+    min-height: calc(100vh - 16px);
+    min-width: calc(100vw - 16px);
+    padding: 8px;
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+.App_header{
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+  }
+.App_header h1 {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    line-height:1.1rem;       
+  }
+.App_header p {
+    color: yellow;
+    font-size: 1.5rem;
+    line-height:1.1rem;
+  }
+.App-list {
+    display: flex;
+  }
+  .loadingCSS{
+    background-color: white;
+    color: blue;
+    margin:auto;
+    padding:50px;
+    font-size: 2rem;
+    position: relative;
+    top: 200px;
+  }
+  #btn-login{
+    float: left;
+    display: block;
+    background-color:green;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+    margin:5px;
+    margin-left:12px;
+    padding:5px 10px;
+
+  }
+  #btn-to-ldap{
+    float: left;
+    display: block;
+    background-color:rgb(228, 32, 75);
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+    margin:5px;
+    margin-left:12px;
+    padding:5px 10px;
+
+  }
+  p{
+    font-size: 20px;
+    color: blue;
+  }
+  
+  ul{
+    font-size: 20px;
+    color: blue;
+  }
+  .main-login {
+    margin-top: 30px;
+    padding:10px;
+    margin-left: 10px;
+    width: 500px;
+    background-color: #0079bf;
+  }
+  h2{
+    margin-top:40px;
+  }
+  
