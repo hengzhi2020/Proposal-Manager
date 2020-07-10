@@ -6,3 +6,4 @@ ENV MYSQL_USER hengzhi
 ENV MYSQL_PASSWORD 123456                
 
 EXPOSE 3306   
+
