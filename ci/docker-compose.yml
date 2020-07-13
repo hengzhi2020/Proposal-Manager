@@ -21,11 +21,12 @@ services:
   
   frontend:
     image: proposalmgr-backend
-    environment:
-      NODE_ENV: production
-      BACKEND_URL: http://backend/
+    env_file: frontend.env
     ports:
       - "7000:3000"
+    configs:
+      - source: frontend-package-json
+        target: /data/app/package.json
         #volumes:
       #- ./frontend:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
@@ -46,9 +47,7 @@ services:
     image: proposalmgr-backend
     depends_on:
       - mysql-db
-    environment:
-      NODE_ENV: production
-      DATABASE_HOST: mysql-db
+    env_file: backend.env
     ports:
       - "8000:8000"
         #volumes:
@@ -80,4 +79,6 @@ volumes:
 configs:
   db-conf:
     file: ./init.sql
+  frontend-package-json:
+    file: ../Frontend/package.json
 
