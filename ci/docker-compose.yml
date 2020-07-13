@@ -2,7 +2,6 @@ version: "3.7"
 
 services:
   mysql-db:
-    container_name: proposalmgr_db
     image: mysql:5.7
     command: --init-file /data/app/init.sql
     environment:
@@ -13,72 +12,72 @@ services:
     ports:
       - "3306"
     volumes:
-      - ./init.sql:/data/app/init.sql
-      - dbdata:/var/lib/mysql
+      - proposalmgr-db:/var/lib/mysql
+    configs:
+      - source: db-conf
+        target: /data/app/init.sql
     #networks:
     #  - default
-    #
-  backend:
-    container_name: proposalmgr_backend
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    depends_on:
-      - mysql-db
-    env_file: .env    
-    #environment:
-    # NODE_ENV="${NODE_ENV}"
-    # PUBLIC_URL="${PUBLIC_URL}"
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./backend:/opt/app:delegated
-      # bind-mounting these two files in will let you add packages during development without rebuilding
-      # for example, to add bower to your app while developing, just install it inside the container
-      # and then nodemon will restart. Your changes will last until you "docker-compose down" and will
-      # be saved on host for next build
-      # docker-compose exec node npm install --save bower
-      - ./backend/package.json:/opt/app/package.json
-      - ./backend/package-lock.json:/opt/app/package-lock.json
-      # this is a workaround to prevent host node_modules from accidently getting mounted in container
-      # in case you want to use node/npm both outside container for test/lint etc. and also inside container
-      # this will overwrite the default node_modules dir in container so it won't conflict with our
-      # /opt/node_modules location. Thanks to PR from @brnluiz
-      - notused:/opt/app/node_modules
-    #networks:
-    #  - default
-    #  
+  
   frontend:
-    container_name: proposalmgr_frontend
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    env_file: .env
-      #environment:
-      #NODE_ENV="${NODE_ENV}"
-      #PUBLIC_URL="${PUBLIC_URL}"
+    image: proposalmgr-backend
+    environment:
+      NODE_ENV: production
+      BACKEND_URL: http://backend/
     ports:
       - "7000:3000"
-    volumes:
-      - ./frontend:/opt/app:delegated
+        #volumes:
+      #- ./frontend:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
       # for example, to add bower to your app while developing, just install it inside the container
       # and then nodemon will restart. Your changes will last until you "docker-compose down" and will
       # be saved on host for next build
       # docker-compose exec node npm install --save bower
-      - ./frontend/package.json:/opt/package.json
-      - ./frontend/package-lock.json:/opt/package-lock.json
+      #- ./frontend/package.json:/opt/package.json
+      #- ./frontend/package-lock.json:/opt/package-lock.json
       # this is a workaround to prevent host node_modules from accidently getting mounted in container
       # in case you want to use node/npm both outside container for test/lint etc. and also inside container
       # this will overwrite the default node_modules dir in container so it won't conflict with our
       # /opt/node_modules location.
-      - notused:/opt/app/node_modules
+      #- notused:/opt/app/node_modules
     #    networks:
+
+  backend:
+    image: proposalmgr-backend
+    depends_on:
+      - mysql-db
+    environment:
+      NODE_ENV: production
+      DATABASE_HOST: mysql-db
+    ports:
+      - "8000:8000"
+        #volumes:
+      #- ./backend:/opt/app:delegated
+      # bind-mounting these two files in will let you add packages during development without rebuilding
+      # for example, to add bower to your app while developing, just install it inside the container
+      # and then nodemon will restart. Your changes will last until you "docker-compose down" and will
+      # be saved on host for next build
+      # docker-compose exec node npm install --save bower
+      #- ./backend/package.json:/opt/app/package.json
+      #- ./backend/package-lock.json:/opt/app/package-lock.json
+      # this is a workaround to prevent host node_modules from accidently getting mounted in container
+      # in case you want to use node/npm both outside container for test/lint etc. and also inside container
+      # this will overwrite the default node_modules dir in container so it won't conflict with our
+      # /opt/node_modules location. Thanks to PR from @brnluiz
+      #- notused:/opt/app/node_modules
+    #networks:
+    #  - default
     # - default
 
 volumes:
-  dbdata:
-  notused:
+  proposalmgr-db:
+    external: true
+    #notused:
     #networks:
     #  default:
     #    driver: bridge
+ 
+configs:
+  db-conf:
+    file: ./init.sql
+
