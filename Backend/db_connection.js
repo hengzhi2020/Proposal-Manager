@@ -1,6 +1,7 @@
 const async = require('async');
 const mysql = require('mysql');
 const ldap = require('ldapjs');
+const db_credentials = require('db_credentials');
 
 var authenObj = {
     username: null,
@@ -9,24 +10,7 @@ var authenObj = {
     passSQL: false,
 }
 
-/* This is for VM CentOS connection */
-/*
-var con = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "Boston4now&",
-    database: "vaProject"
-});
-*/
-
-/* This is for MacOS connection */
-
-var con = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "VA_Boston2020",
-    password: "Boston4now",
-    database: "Proposals_MRS"
-});
+var con = mysql.createConnection(db_credentials.db_credentials);
 
 
 /* This is for Docker mysql connection */

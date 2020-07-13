@@ -50,6 +50,9 @@ services:
     env_file: backend.env
     ports:
       - "8000:8000"
+    configs:
+      - source: db-credentials
+        target: /data/app/db_credentials.js
         #volumes:
       #- ./backend:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
@@ -81,4 +84,6 @@ configs:
     file: ./init.sql
   frontend-package-json:
     file: ../Frontend/package.json
+  db-credentials:
+    file: ./db_credentials.js
 

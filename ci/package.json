@@ -2,7 +2,7 @@
   "name": "va_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://localhost:3000/",
+  "homepage": "https://vhapthapp5gen.v04.med.va.gov/dplc/",
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
