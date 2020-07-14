@@ -153,7 +153,7 @@ class App extends Component {
 
     closeUpdateModal = (e) => {
         this.setState({ openUpdateModal: false });
-       //* window.location.reload();*/
+        //* window.location.reload();*/
     }
 
     closeDeleteModal = (e) => {
@@ -163,12 +163,12 @@ class App extends Component {
 
     closeScoreModal = (e) => {
         this.setState({ openScoreModal: false });
-         //* window.location.reload();*/
+        //* window.location.reload();*/
     }
 
     closeReportModal = (e) => {
         this.setState({ openReportModal: false });
-         //* window.location.reload();*/
+        //* window.location.reload();*/
     }
 
     closeSearchModal = (e) => {
@@ -287,7 +287,7 @@ class App extends Component {
             proposals: null,
             //  loading: true
         })
-        fetch(`http://localhost:8000/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
+        fetch(`${process.env.BACKEND_URL}/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
             .then(response => response.json())
             .then(mypro => {
                 this.setState({
@@ -306,7 +306,7 @@ class App extends Component {
             searched_pls: null,
         });
 
-        fetch(`http://localhost:8000/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
+        fetch(`${process.env.BACKEND_URL}/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
             .then(response => response.json())
             .then(mysearch => {
                 this.setState({
@@ -321,7 +321,7 @@ class App extends Component {
             proposals: null,
             //  loading: true
         })
-        fetch(`http://localhost:8000/reviewdata`)
+        fetch(`${process.env.BACKEND_URL}/reviewdata`)
             .then(response => response.json())
             .then(myreview => {
                 this.setState({
@@ -337,7 +337,7 @@ class App extends Component {
             proposals: null,
             //  loading: true
         })
-        fetch(`http://localhost:8000/reviewers`)
+        fetch(`${process.env.BACKEND_URL}/reviewers`)
             .then(response => response.json())
             .then(onereviewer => {
                 this.setState({
