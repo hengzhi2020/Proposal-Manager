@@ -11,10 +11,10 @@
 
 To be run on a manager node.
 
-`make`: builds images and deploys `proposalmgr` stack
-`make build`: builds `proposalmgr-frontend` and `proposalmgr-backend` images
-`make start`: deploys `proposalmgr` stack
-`make stop`: removes `proposalmgr` stack
+- `make`: builds images and deploys `proposalmgr` stack
+- `make build`: builds `proposalmgr-frontend` and `proposalmgr-backend` images
+- `make start`: deploys `proposalmgr` stack
+- `make stop`: removes `proposalmgr` stack
 
 ### Details
 
