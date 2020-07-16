@@ -15,3 +15,5 @@ stop:
 	  sleep 1; \
 	done
 
+restart: stop start
+

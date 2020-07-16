@@ -1,7 +1,7 @@
 const async = require('async');
 const mysql = require('mysql');
 const ldap = require('ldapjs');
-const db_credentials = require('db_credentials');
+const db_credentials = require('./db_credentials');
 
 var authenObj = {
     username: null,
@@ -10,7 +10,7 @@ var authenObj = {
     passSQL: false,
 }
 
-var con = mysql.createConnection(db_credentials.db_credentials);
+var con = mysql.createConnection(db_credentials);
 
 
 /* This is for Docker mysql connection */

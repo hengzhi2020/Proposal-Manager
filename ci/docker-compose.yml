@@ -20,13 +20,14 @@ services:
     #  - default
   
   frontend:
-    image: proposalmgr-backend
+    image: proposalmgr-frontend
+    #command: build
     env_file: frontend.env
     ports:
       - "7000:3000"
-    configs:
-      - source: frontend-package-json
-        target: /data/app/package.json
+        #configs:
+        #  - source: frontend-package-json
+        #    target: /app/package.json
         #volumes:
       #- ./frontend:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
@@ -52,7 +53,7 @@ services:
       - "8000:8000"
     configs:
       - source: db-credentials
-        target: /data/app/db_credentials.js
+        target: /app/db_credentials.js
         #volumes:
       #- ./backend:/opt/app:delegated
       # bind-mounting these two files in will let you add packages during development without rebuilding
