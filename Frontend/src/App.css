@@ -36,6 +36,15 @@ body{
     position: relative;
     top: 200px;
   }
+
+  #not-access-note{
+    background-color: white;
+    margin-top:50px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   #btn-login{
     float: left;
     display: block;

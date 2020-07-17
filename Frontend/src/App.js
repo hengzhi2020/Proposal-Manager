@@ -202,9 +202,17 @@ class App extends Component {
         if (this.state.reviewerinfo) {
             this.props.DATA.Reviewer.id = this.state.reviewerinfo[0].Id1;
             this.props.DATA.Reviewer.name = this.state.reviewerinfo[0].ldap_username;
-            //  console.log("This reviewer info is :", this.state.reviewerinfo);
-            //  console.log("User ID in Reviewer-List: ", this.state.reviewerinfo[0].Id1);
-            console.log("Login UserName: ", this.state.reviewerinfo[0].ldap_username);
+            console.log("user_name: ", this.state.reviewerinfo[0].ldap_username);
+            console.log("user_status: ", this.state.reviewerinfo[0].user_status);
+        }
+
+        if (!this.props.DATA.Reviewer.name) {
+            return (
+                <div id="not-access-note">
+                    <h1>Sorry, You Are Not Authorized To Access This Web Portal! </h1>
+                    <p>Your VA OpneLDAP login username has not been added to the reviewers-table.</p>
+                </div>
+            )
         }
 
         return (
@@ -287,7 +295,7 @@ class App extends Component {
             proposals: null,
             //  loading: true
         })
-        fetch(`${process.env.BACKEND_URL}/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
             .then(response => response.json())
             .then(mypro => {
                 this.setState({
@@ -296,7 +304,7 @@ class App extends Component {
                     pageNumber: pageNumber,
                     //  loading: false
                 });
-                // console.log('loaded  Proposals == ', this.state.proposals);
+                //   console.log('Loaded  Proposals == ', this.state.proposals);
             })
     }
 
@@ -306,7 +314,7 @@ class App extends Component {
             searched_pls: null,
         });
 
-        fetch(`${process.env.BACKEND_URL}/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
             .then(response => response.json())
             .then(mysearch => {
                 this.setState({
@@ -321,28 +329,29 @@ class App extends Component {
             proposals: null,
             //  loading: true
         })
-        fetch(`${process.env.BACKEND_URL}/reviewdata`)
+
+        fetch(`${process.env.REACT_APP_BACKEND_URL}reviewdata`)
             .then(response => response.json())
             .then(myreview => {
                 this.setState({
                     reviewdatas: myreview,
                     //  loading: false
                 });
-                //   console.log('loaded - reviewdatas == ', this.state.reviewdatas);
+                //  console.log('Loaded - reviewdatas == ', this.state.reviewdatas);
             })
     }
 
     getReviewerInfo() {
-        this.setState({
-            proposals: null,
-            //  loading: true
-        })
-        fetch(`${process.env.BACKEND_URL}/reviewers`)
+
+        this.setState({ proposals: null });
+
+        fetch(`${process.env.REACT_APP_BACKEND_URL}reviewers`)
             .then(response => response.json())
             .then(onereviewer => {
                 this.setState({
                     reviewerinfo: onereviewer
                 });
+                // console.log('Loaded - One reviewer Info == ', this.state.reviewerinfo);
             })
     }
 

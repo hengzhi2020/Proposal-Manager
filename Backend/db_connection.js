@@ -4,12 +4,12 @@ const ldap = require('ldapjs');
 
 var authenObj = {
     username: null,
-    password: null,
-    passLDAP: false,
+    //  password: null,
+    //  passLDAP: false,
     passSQL: false,
 }
 
-/* This is for VM CentOS connection */
+/* This "mysql" is for VM CentOS connection */
 /*
 var con = mysql.createConnection({
     host: "127.0.0.1",
@@ -19,8 +19,8 @@ var con = mysql.createConnection({
 });
 */
 
-/* This is for MacOS connection */
-
+/* This "mysql" is for MacOS connection */
+/* */
 var con = mysql.createConnection({
     host: "127.0.0.1",
     user: "VA_Boston2020",
@@ -29,7 +29,7 @@ var con = mysql.createConnection({
 });
 
 
-/* This is for Docker mysql connection */
+/* This "mysql" is for Docker mysql connection */
 /*
 var con = mysql.createConnection({
     host: "192.168.1.10",     // $ ifconfig | grep 168
@@ -40,8 +40,8 @@ var con = mysql.createConnection({
 });
 */
 
-/* ---------- LDAP Authentication _and_ SQL Verification of reviewers ---------- */
-
+/* This "ldapjs" is for connection to VA OpenLDAP to get THIS Login username */
+/* 
 function authenticateDN(username, password) {
     var client = ldap.createClient({
         url: 'ldap://127.0.0.1:389'
@@ -84,13 +84,14 @@ function authenticateDN(username, password) {
                         });
                     }
                 });
-                // ----------------------------------------------------------------------
-
             }
         }
     );
 }
+*/
 
+/* This function is to precess Login POST (username, password) */
+/* 
 exports.loginValidation = function (req, res) {
 
     // after integrating this web portal into VA intranet dashboard, it is supposed
@@ -100,29 +101,37 @@ exports.loginValidation = function (req, res) {
     // ------------------ Search function ----------------------
     authenObj.username = req.body.username;
     authenObj.password = req.body.password;
-    // authenticateDN("cn=admin,dc=openldap,dc=local", "516405");
+    // LDAP authenticateDN("cn=admin,dc=openldap,dc=local", "516405");
     authenObj.passLDAP = true;
 }
+*/
 
+/* This function is to check that LDAP Login username is listed in the "reviewers" table */
+/* 
 exports.authenResults = function (req, res) {
-
     async.series([
+
+        function (callback) {
+            () => {
+                // Link to OpenLDAP to get the current Login username
+                authenObj.username = 'hwang'
+            }
+        },
 
         function (callback) {
             con.query('select id from reviewers where ldap_username = ?', [authenObj.username],
                 (err, result) => {
-
                     if (result.length === 1) {
                         authenObj.passSQL = true;
                     };
                     if (result.length === 0) {
                         authenObj.passSQL = false;
                     };
-                    //  console.log("Line-111 query result is: ", result);
                     callback(err);
                 }
             );
         },
+
         function (callback) {
             res.send(authenObj);
             callback(null);
@@ -130,18 +139,33 @@ exports.authenResults = function (req, res) {
     ],
     );
 }
+*/
 
 exports.getReviewerInfo = function (req, res) {
 
-    if (authenObj.username) {
-        con.query('SELECT id as Id1, id as Id2, ldap_username, user_status FROM reviewers WHERE ldap_username = ? UNION ALL SELECT MIN(id), MAX(id), NULL, NULL FROM reviewers', [authenObj.username],
-            function (err, result) {
-                if (err) throw err;
-                res.json(result);
-                console.log('GET reviewers id and user_status from DB: OK');
-            });
-    }
+    async.series([
+
+        function (callback) {
+
+            // Access VA OpenLDAP for Login usernam, assign it as the follopwing:
+
+            authenObj.username = "hwang";
+            console.log("This OpenLDAP username is: ", authenObj.username);
+            callback(null);
+        },
+
+        function (callback) {
+            con.query('SELECT id as Id1, id as Id2, ldap_username, user_status FROM reviewers WHERE ldap_username = ? UNION ALL SELECT MIN(id), MAX(id), NULL, NULL FROM reviewers', [authenObj.username],
+                function (err, result) {
+                    if (err) throw err;
+                    res.json(result);
+                    console.log('GET reviewers id and user_status from DB: OK');
+                });
+        }
+    ],
+    );
 }
+
 /* -------------------------------------------------------------------------------------------------------- */
 
 exports.proposalList = function (req, res) {
@@ -339,7 +363,6 @@ exports.submitReviewData = function (req, res) {
     ],
         // optional callback
         function (err, results) {
-            // results is now equal to ['one', 'two']
         }
     );
 

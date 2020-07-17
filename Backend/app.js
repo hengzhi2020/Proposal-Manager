@@ -24,6 +24,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+/* This is the old one with Login Interface for TEST purpose */
+/* 
 app.route('/loginData')
     .post((req, res) => {
         loginValidation(req, res);
@@ -31,10 +33,11 @@ app.route('/loginData')
     .get((req, res) => {
         authenResults(req, res);
         })
+ */
 
 app.get('/reviewers', (req, res) => {
-        getReviewerInfo(req, res);
-    });
+    getReviewerInfo(req, res);
+});
 
 app.route('/proposals')
     .get((req, res) => {
