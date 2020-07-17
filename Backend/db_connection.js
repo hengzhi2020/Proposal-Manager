@@ -147,10 +147,14 @@ exports.getReviewerInfo = function (req, res) {
 
         function (callback) {
 
-            // Access VA OpenLDAP for Login usernam, assign it as the follopwing:
-
-            authenObj.username = "hwang";
-            console.log("This OpenLDAP username is: ", authenObj.username);
+            // Access HTTP Headers to get username: REPLACE 'connection' with "username"
+            var username_in_headers = req.headers['connection'];
+            if (username_in_headers) {
+                authenObj.username = username_in_headers;
+            } else {
+                console.log("Can not find a 'username' in http-headers");
+            }
+            // console.log("This Login username is: ", authenObj.username);
             callback(null);
         },
 
