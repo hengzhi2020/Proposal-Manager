@@ -6,9 +6,11 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            redirect: null
+            redirect: true
         }
     }
+    // IF WE WANT A BUTTON -> CLICK to launch the webpage,
+    // SET the above { redirect: false }
 
     render() {
         if (this.state.redirect) {
