@@ -148,7 +148,7 @@ exports.getReviewerInfo = function (req, res) {
         function (callback) {
 
             // Access HTTP Headers to get username: REPLACE 'connection' with "username"
-            var username_in_headers = req.headers['connection'];
+            var username_in_headers = req.headers['x-remote-user'];
             if (username_in_headers) {
                 authenObj.username = username_in_headers;
             } else {
