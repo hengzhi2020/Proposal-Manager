@@ -11,10 +11,18 @@ WORKDIR /app
 COPY package.json /app
 COPY package-lock.json /app
 
+RUN apt-get update && \
+    apt install -y libglu1 libxi6 libgconf-2-4 && \
+    ldconfig
+
 RUN npm install
 COPY . /app
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# For production we should run:
+#RUN ["npm", "run", "build"]
+#CMD ["npm", "start"]
+
+CMD ["npm", "run", "dev"]
 

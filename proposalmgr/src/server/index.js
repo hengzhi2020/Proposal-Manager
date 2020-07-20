@@ -35,11 +35,11 @@ app.route('/loginData')
         })
  */
 
-app.get('/reviewers', (req, res) => {
+app.get('/api/reviewers', (req, res) => {
     getReviewerInfo(req, res);
 });
 
-app.route('/proposals')
+app.route('/api/proposals')
     .get((req, res) => {
         proposalList(req, res);
     })
@@ -53,7 +53,7 @@ app.route('/proposals')
         deleteProposal(req, res);
     })
 
-app.route('/reviewdata')
+app.route('/api/reviewdata')
     .get((req, res) => {
         getReviewReports(req, res);
     })
@@ -67,11 +67,11 @@ app.route('/reviewdata')
         submitReviewData(req, res);
     })
 
-app.get('/proposals/search', (req, res) => {
+app.get('/api/proposals/search', (req, res) => {
     getSearchList(req, res);
 });
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     console.log(req.url);
     res.send('Node Express Server: Connected');
 });
@@ -79,3 +79,4 @@ app.get('/', (req, res) => {
 app.listen(8000, () => {
     console.log('Node Express Server: started on PORT 8000');
 });
+

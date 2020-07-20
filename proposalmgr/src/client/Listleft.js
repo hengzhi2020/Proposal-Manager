@@ -3,6 +3,7 @@ import { Input, Dropdown } from 'semantic-ui-react';
 import './Card.css';
 import './Listleft.css';
 import './ModalCreate';
+import vaLogoSmall from './VA_Logo_smallJPG_.jpg';
 
 const searchOptions = [
     {
@@ -21,7 +22,7 @@ export default function List(props) {
     return (
         <section className='List'>
             <div className='Logo'>
-                <img src={require('./VA_Logo_smallJPG_.jpg')} alt="VA Logo" />
+                <img src={vaLogoSmall} alt="VA Logo" />
             </div>
 
             <header className='List-header'>
