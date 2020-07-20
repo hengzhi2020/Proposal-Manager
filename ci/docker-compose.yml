@@ -9,8 +9,6 @@ services:
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: dbuser#1812
       MYSQL_DATABASE: Proposals_MRS
-    ports:
-      - "3306"
     volumes:
       - proposalmgr-db:/var/lib/mysql
     configs:
@@ -19,12 +17,19 @@ services:
     #networks:
     #  - default
   
-  frontend:
-    image: proposalmgr-frontend
+  server:
+    image: proposalmgr
+    depends_on:
+      - mysql-db
     #command: build
-    env_file: frontend.env
+    env_file: .env.production
     ports:
       - "7000:3000"
+    configs:
+      - source: webpack-config
+        target: /app/webpack.config.js
+      - source: db-credentials
+        target: /app/src/server/db_credentials.js
         #configs:
         #  - source: frontend-package-json
         #    target: /app/package.json
@@ -44,34 +49,6 @@ services:
       #- notused:/opt/app/node_modules
     #    networks:
 
-  backend:
-    image: proposalmgr-backend
-    depends_on:
-      - mysql-db
-    env_file: backend.env
-    ports:
-      - "8000:8000"
-    configs:
-      - source: db-credentials
-        target: /app/db_credentials.js
-        #volumes:
-      #- ./backend:/opt/app:delegated
-      # bind-mounting these two files in will let you add packages during development without rebuilding
-      # for example, to add bower to your app while developing, just install it inside the container
-      # and then nodemon will restart. Your changes will last until you "docker-compose down" and will
-      # be saved on host for next build
-      # docker-compose exec node npm install --save bower
-      #- ./backend/package.json:/opt/app/package.json
-      #- ./backend/package-lock.json:/opt/app/package-lock.json
-      # this is a workaround to prevent host node_modules from accidently getting mounted in container
-      # in case you want to use node/npm both outside container for test/lint etc. and also inside container
-      # this will overwrite the default node_modules dir in container so it won't conflict with our
-      # /opt/node_modules location. Thanks to PR from @brnluiz
-      #- notused:/opt/app/node_modules
-    #networks:
-    #  - default
-    # - default
-
 volumes:
   proposalmgr-db:
     external: true
@@ -83,8 +60,8 @@ volumes:
 configs:
   db-conf:
     file: ./init.sql
-  frontend-package-json:
-    file: ../Frontend/package.json
+  webpack-config:
+    file: ./webpack.config.js
   db-credentials:
     file: ./db_credentials.js
 

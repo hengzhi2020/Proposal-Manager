@@ -1,8 +1,7 @@
 all: build start
 
 build:
-	cd Frontend && docker build . -f Dockerfile -t proposalmgr-frontend
-	cd Backend  && docker build . -f Dockerfile -t proposalmgr-backend
+	cd proposalmgr && docker build . -f Dockerfile -t proposalmgr
 
 start:
 	docker stack deploy --prune -c ci/docker-compose.yml proposalmgr
