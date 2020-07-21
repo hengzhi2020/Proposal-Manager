@@ -8,12 +8,12 @@ ENV NODE_EXTRA_CA_CERTS /usr/local/share/ca-certificates/VA.pem
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY package.json /app
-COPY package-lock.json /app
-
 RUN apt-get update && \
     apt install -y libglu1 libxi6 libgconf-2-4 && \
     ldconfig
+
+COPY package.json /app
+COPY package-lock.json /app
 
 RUN npm install
 COPY . /app
