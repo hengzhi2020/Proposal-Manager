@@ -123,6 +123,7 @@ exports.getReviewerInfo = function (req, res) {
             var username_in_headers = req.headers['x-remote-user'];
             if (username_in_headers) {
                 authenObj.username = username_in_headers;
+                username_in_headers = null;
             } else {
                 console.log("Can not find a 'username' in http-headers");
             }

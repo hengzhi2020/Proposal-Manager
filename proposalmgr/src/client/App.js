@@ -199,96 +199,100 @@ class App extends Component {
           }
         */
 
-        if (this.state.reviewerinfo) {
+        if (!this.state.reviewerinfo) {
+            return (<div></div>)
+        } else if (this.state.reviewerinfo.length === 1 || !this.props.DATA.Reviewer.name) {
             this.props.DATA.Reviewer.id = this.state.reviewerinfo[0].Id1;
             this.props.DATA.Reviewer.name = this.state.reviewerinfo[0].ldap_username;
-            console.log("user_name: ", this.state.reviewerinfo[0].ldap_username);
-            console.log("user_status: ", this.state.reviewerinfo[0].user_status);
-        }
-
-        if (!this.props.DATA.Reviewer.name) {
+            //  console.log("user_name: ", this.state.reviewerinfo[0].ldap_username);
+            //  console.log("user_status: ", this.state.reviewerinfo[0].user_status);
             return (
                 <div id="not-access-note">
                     <h1>Sorry, You Are Not Authorized To Access This Web Portal! </h1>
                     <p>Your VA OpneLDAP login username has not been added to the reviewers-table.</p>
                 </div>
             )
-        }
+        } else {
+            this.props.DATA.Reviewer.id = this.state.reviewerinfo[0].Id1;
+            this.props.DATA.Reviewer.name = this.state.reviewerinfo[0].ldap_username;
+            // console.log("user_name: ", this.state.reviewerinfo[0].ldap_username);
+            // console.log("user_status: ", this.state.reviewerinfo[0].user_status);
+            return (
+                <main className='App'>
+                    <header className='App_header'>
+                        <h1>Proposal Management and Reviewing Platform</h1>
+                        <p>Center for Data and Computational Science - VA Boston Healthcare System at Jamaica Plain</p>
+                    </header>
+                    <div className='App-list'>
 
-        return (
-            <main className='App'>
-                <header className='App_header'>
-                    <h1>Proposal Management and Reviewing Platform</h1>
-                    <p>Center for Data and Computational Science - VA Boston Healthcare System at Jamaica Plain</p>
-                </header>
-                <div className='App-list'>
+                        <Listleft
+                            createHandler={this.createHandler}
+                            searchTitleInput={this.searchTitleInput}
+                            searchDateInput={this.searchDateInput}
+                            searchCombineSelector={this.searchCombineSelector}
+                            getSearchResult={this.getSearchResult}
+                        />
 
-                    <Listleft
-                        createHandler={this.createHandler}
-                        searchTitleInput={this.searchTitleInput}
-                        searchDateInput={this.searchDateInput}
-                        searchCombineSelector={this.searchCombineSelector}
-                        getSearchResult={this.getSearchResult}
-                    />
+                        <Listtable
+                            proposals={proposals}
+                            reviewdatas={reviewdatas}
+                            deleteHandler={this.deleteHandler}
+                            updateHandler={this.updateHandler}
+                            scoreHandler={this.scoreHandler}
+                            reportHandler={this.reportHandler}
+                            pageSelector={this.pageSelector}
+                            DATA={this.props.DATA}
+                        />
+                    </div>
 
-                    <Listtable
-                        proposals={proposals}
-                        reviewdatas={reviewdatas}
-                        deleteHandler={this.deleteHandler}
-                        updateHandler={this.updateHandler}
-                        scoreHandler={this.scoreHandler}
-                        reportHandler={this.reportHandler}
-                        pageSelector={this.pageSelector}
+                    {!!this.state.proposals && <ModalCreate
+                        createClickopen={this.state.openCreateModal}
+                        createClickclose={this.closeCreateModal}
+                        reviewerinfo={this.state.reviewerinfo}
+                        maxProposalId={this.state.proposals[0].id}
+                    />}
+
+                    {!!this.state.proposal && !!this.state.openUpdateModal && <ModalUpdate
+                        updateClickopen={this.state.openUpdateModal}
+                        updateClickclose={this.closeUpdateModal}
+                        updateProposal={this.state.proposal}
+                    />}
+
+                    {!!this.state.proposal && !!this.state.openDeleteModal && <ModalDelete
+                        deleteClickopen={this.state.openDeleteModal}
+                        deleteClickclose={this.closeDeleteModal}
+                        deleteProposal={this.state.proposal}
+                    />}
+
+                    {!!this.state.proposal && !!this.state.reviewdata && !!this.state.openScoreModal && <ModalScore
+                        scoreClickopen={this.state.openScoreModal}
+                        scoreClickclose={this.closeScoreModal}
+                        scoreProposal={this.state.proposal}
+                        reviewdata={this.state.reviewdata}
                         DATA={this.props.DATA}
-                    />
-                </div>
+                    />}
 
-                {!!this.state.proposals && <ModalCreate
-                    createClickopen={this.state.openCreateModal}
-                    createClickclose={this.closeCreateModal}
-                    reviewerinfo={this.state.reviewerinfo}
-                    maxProposalId={this.state.proposals[0].id}
-                />}
+                    {!!this.state.proposal && !!this.state.reviewdata && !!this.state.openReportModal && <ModalReport
+                        reportClickopen={this.state.openReportModal}
+                        reportClickclose={this.closeReportModal}
+                        reportProposal={this.state.proposal}
+                        reviewdata={this.state.reviewdata}
+                    />}
 
-                {!!this.state.proposal && !!this.state.openUpdateModal && <ModalUpdate
-                    updateClickopen={this.state.openUpdateModal}
-                    updateClickclose={this.closeUpdateModal}
-                    updateProposal={this.state.proposal}
-                />}
-
-                {!!this.state.proposal && !!this.state.openDeleteModal && <ModalDelete
-                    deleteClickopen={this.state.openDeleteModal}
-                    deleteClickclose={this.closeDeleteModal}
-                    deleteProposal={this.state.proposal}
-                />}
-
-                {!!this.state.proposal && !!this.state.reviewdata && !!this.state.openScoreModal && <ModalScore
-                    scoreClickopen={this.state.openScoreModal}
-                    scoreClickclose={this.closeScoreModal}
-                    scoreProposal={this.state.proposal}
-                    reviewdata={this.state.reviewdata}
-                    DATA={this.props.DATA}
-                />}
-
-                {!!this.state.proposal && !!this.state.reviewdata && !!this.state.openReportModal && <ModalReport
-                    reportClickopen={this.state.openReportModal}
-                    reportClickclose={this.closeReportModal}
-                    reportProposal={this.state.proposal}
-                    reviewdata={this.state.reviewdata}
-                />}
-
-                {
-                    !!this.state.searched_pls && !!this.state.openSearchModal && <ModalSearch
-                        searchClickopen={this.state.openSearchModal}
-                        searchClickclose={this.closeSearchModal}
-                        searched_pls={this.state.searched_pls}
-                    />
-                }
+                    {
+                        !!this.state.searched_pls && !!this.state.openSearchModal && <ModalSearch
+                            searchClickopen={this.state.openSearchModal}
+                            searchClickclose={this.closeSearchModal}
+                            searched_pls={this.state.searched_pls}
+                        />
+                    }
 
 
-            </main>
-        );
+                </main>
+            );
+        }
     }
+
 
     getProposals(pageSize, pageNumber) {
         this.setState({
