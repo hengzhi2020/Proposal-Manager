@@ -3,8 +3,7 @@ CREATE DATABASE
 IF NOT EXISTS Proposals_MRS;
 USE Proposals_MRS;
 
-#
-create the users
+# create the users
 CREATE USER
 IF NOT EXISTS 'dbuser'@'%' IDENTIFIED BY 'dbuser#1812';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON Proposals_MRS.* TO 'dbuser'@'%';
@@ -18,7 +17,7 @@ IF NOT EXISTS reviewers
     ldap_username char
 (50) CHARACTER
 SET utf8mb4
-COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' UNIQUE,
     first_name char
 (50) CHARACTER
 SET utf8mb4
@@ -38,7 +37,7 @@ COLLATE utf8mb4_unicode_ci DEFAULT NULL,
 UPDATE CURRENT_TIMESTAMP,
     user_status char(20) CHARACTER
 SET utf8mb4
-COLLATE utf8mb4_0900_ai_ci DEFAULT 'regular',
+COLLATE utf8mb4_unicode_ci DEFAULT 'regular',
     PRIMARY KEY
 (`id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
@@ -138,3 +137,10 @@ DELETE CASCADE
 UPDATE CASCADE
 
 ) ENGINE = InnoDB;
+
+INSERT IGNORE INTO reviewers (ldap_username, first_name, last_name) VALUES
+('vhabhsgieraa', 'Aaron', 'Giera'),
+('vhabhsliangk', 'Kuei-Cheng', 'Liang'),
+('vhabhshewitm', 'Mark', 'Hewitt'),
+('vhabhshsiehp', 'Paul', 'Hsieh');
+

@@ -10,7 +10,7 @@ var authenObj = {
     passSQL: false,
 }
 
-var con = mysql.createConnection(db_credentials);
+var con = mysql.createPool(db_credentials);
 
 /* This "ldapjs" is for connection to VA OpenLDAP to get THIS Login username */
 /* 
