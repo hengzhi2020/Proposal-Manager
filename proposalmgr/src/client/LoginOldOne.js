@@ -22,7 +22,7 @@ class Login extends Component {
         }
       //  console.log("Login data before Submit ", loginData);
 
-        fetch(`http://localhost:8000/loginData`, {
+        fetch(`/api/loginData`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ class Login extends Component {
 
     getAuthenGoToWebpage = (e) => {
 
-        fetch(`http://localhost:8000/loginData`)
+        fetch(`/api/loginData`)
             .then(response => response.json())
             .then(authenResults => {
                 this.setState({

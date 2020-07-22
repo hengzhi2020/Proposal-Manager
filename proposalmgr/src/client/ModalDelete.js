@@ -24,7 +24,7 @@ class ModalDelete extends React.Component {
             };
             console.log('deleted data for POST: ', deletedata);
     
-            fetch(`http://localhost:8000/proposals`, {
+            fetch(`/api/proposals`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

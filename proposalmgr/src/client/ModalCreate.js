@@ -47,7 +47,7 @@ class ModalCreate extends React.Component {
                 console.log(response);
             });
 
-        fetch(`${process.env.REACT_APP_BACKEND_URL}api/reviewdata`, {
+        fetch(`/api/reviewdata`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
