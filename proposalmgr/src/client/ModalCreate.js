@@ -33,7 +33,7 @@ class ModalCreate extends React.Component {
         };
         console.log('created data for POST: ', createdata);
 
-        fetch(`/api/proposals`, {
+        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +47,7 @@ class ModalCreate extends React.Component {
                 console.log(response);
             });
 
-        fetch(`/api/reviewdata`, {
+        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -32,7 +32,7 @@ class ModalUpdate extends React.Component {
         };
         console.log('updated data for POST: ', updatedata);
 
-        fetch(`/api/proposals`, {
+        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

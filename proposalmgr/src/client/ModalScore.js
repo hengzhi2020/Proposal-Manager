@@ -127,7 +127,7 @@ class ModalScore extends React.Component {
             action: 'savereview',
         };
 
-        fetch(`/api/reviewdata`, {
+        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -165,7 +165,7 @@ class ModalScore extends React.Component {
 
         console.log('submit__ reviewdata -to- server ==> ', reviewdata);
 
-        fetch(`/api/reviewdata`, {
+        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

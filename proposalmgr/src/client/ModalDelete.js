@@ -46,7 +46,7 @@ class ModalDelete extends React.Component {
             title: 'DELETED__ ' + this.state.title,
         };
 
-        fetch(`/api/proposals`, {
+        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

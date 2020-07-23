@@ -22,7 +22,7 @@ class Login extends Component {
         }
       //  console.log("Login data before Submit ", loginData);
 
-        fetch(`/api/loginData`, {
+        fetch(`${process.env.PUBLIC_URL}/api/loginData`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ class Login extends Component {
 
     getAuthenGoToWebpage = (e) => {
 
-        fetch(`/api/loginData`)
+        fetch(`${process.env.PUBLIC_URL}/api/loginData`)
             .then(response => response.json())
             .then(authenResults => {
                 this.setState({

@@ -286,7 +286,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`/api/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
+    fetch(`${process.env.PUBLIC_URL}/api/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
       .then(response => response.json())
       .then(mypro => {
         this.setState({
@@ -305,7 +305,7 @@ class App extends Component {
       searched_pls: null,
     });
 
-    fetch(`/api/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
+    fetch(`${process.env.PUBLIC_URL}/api/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
       .then(response => response.json())
       .then(mysearch => {
         this.setState({
@@ -320,7 +320,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`/api/reviewdata`)
+    fetch(`${process.env.PUBLIC_URL}/api/reviewdata`)
       .then(response => response.json())
       .then(myreview => {
         this.setState({
@@ -336,7 +336,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`/api/reviewers`)
+    fetch(`${process.env.PUBLIC_URL}/api/reviewers`)
       .then(response => response.json())
       .then(onereviewer => {
         this.setState({
