@@ -153,6 +153,13 @@ exports.proposalList = function (req, res) {
     });
 }
 
+exports.totalProposalsCount = function (req, res) {
+    con.query('select count(title) from proposals', function (err, result) {
+        if (err) throw err;
+        res.json(result);
+        console.log('GET proposals total numbers from DB: OK');
+    });
+}
 
 exports.getSearchList = function (req, res) {
 
