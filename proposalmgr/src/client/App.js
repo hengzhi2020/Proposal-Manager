@@ -217,6 +217,11 @@ class App extends Component {
             this.props.DATA.Reviewer.name = this.state.reviewerinfo[0].ldap_username;
             // console.log("user_name: ", this.state.reviewerinfo[0].ldap_username);
             // console.log("user_status: ", this.state.reviewerinfo[0].user_status);
+            var maxProposalId = 0;
+            if (this.state.proposals != undefined &&
+                    this.state.proposals.length > 0) {
+                maxProposalId = this.state.proposals[0].id;
+            }
             return (
                 <main className='App'>
                     <header className='App_header'>
@@ -249,7 +254,7 @@ class App extends Component {
                         createClickopen={this.state.openCreateModal}
                         createClickclose={this.closeCreateModal}
                         reviewerinfo={this.state.reviewerinfo}
-                        maxProposalId={this.state.proposals[0].id}
+                        maxProposalId={maxProposalId}
                     />}
 
                     {!!this.state.proposal && !!this.state.openUpdateModal && <ModalUpdate
