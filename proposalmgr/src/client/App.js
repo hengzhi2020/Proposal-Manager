@@ -301,7 +301,7 @@ class App extends Component {
 
     getProposalTotalNumber() {
 
-        fetch(`/api/proposals/num`)
+        fetch(`${process.env.PUBLIC_URL}/api/proposals/num`)
             .then(response => response.json())
             .then(prposlcount => {
                 this.props.DATA.ProposalsDisplay.totalPages = Math.ceil(prposlcount[0]['count(title)'] / 10);
