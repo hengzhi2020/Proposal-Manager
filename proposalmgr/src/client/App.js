@@ -35,9 +35,11 @@ class App extends Component {
         this.getProposals = this.getProposals.bind(this);
         this.getreviewdatas = this.getreviewdatas.bind(this);
         this.getReviewerInfo = this.getReviewerInfo.bind(this);
+        this.getProposalTotalNumber = this.getProposalTotalNumber.bind(this);
     };
 
     componentDidMount() {
+        this.getProposalTotalNumber();
         this.getProposals(this.props.DATA.ProposalsDisplay.pageSize, 1);
         this.getreviewdatas();
         this.getReviewerInfo();
@@ -198,8 +200,7 @@ class App extends Component {
              console.log("this.props.DATA.Reviewer.id :", this.props.DATA.Reviewer.id);
           }
         */
-
-        if (!this.state.reviewerinfo) {
+        if (!this.state.proposals || !this.state.reviewerinfo || !this.state.reviewdatas) {
             return (<div></div>)
         } else if (this.state.reviewerinfo.length === 1 || !this.props.DATA.Reviewer.name) {
             this.props.DATA.Reviewer.id = this.state.reviewerinfo[0].Id1;
@@ -298,6 +299,14 @@ class App extends Component {
         }
     }
 
+    getProposalTotalNumber() {
+
+        fetch(`/api/proposals/num`)
+            .then(response => response.json())
+            .then(prposlcount => {
+                this.props.DATA.ProposalsDisplay.totalPages = Math.ceil(prposlcount[0]['count(title)'] / 10);
+            });
+    }
 
     getProposals(pageSize, pageNumber) {
         this.setState({

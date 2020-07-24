@@ -3,6 +3,7 @@ const async = require('async');
 const morgan = require('morgan');
 const cors = require('cors');
 const proposalList = require('./db_connection').proposalList;
+const totalProposalsCount = require('./db_connection').totalProposalsCount;
 const updateProposal = require('./db_connection').updateProposal;
 const createProposal = require('./db_connection').createProposal;
 const deleteProposal = require('./db_connection').deleteProposal;
@@ -12,8 +13,8 @@ const getReviewReports = require('./db_connection').getReviewReports;
 const getReviewerInfo = require('./db_connection').getReviewerInfo;
 const createRowsForEachReviewer = require('./db_connection').createRowsForEachReviewer;
 const getSearchList = require('./db_connection').getSearchList;
-const loginValidation = require('./db_connection').loginValidation;
-const authenResults = require('./db_connection').authenResults;
+// const loginValidation = require('./db_connection').loginValidation;
+// const authenResults = require('./db_connection').authenResults;
 
 const bodyParser = require('body-parser');
 const app = express();
@@ -38,6 +39,10 @@ app.route('/loginData')
 
 app.get('/api/reviewers', (req, res) => {
     getReviewerInfo(req, res);
+});
+
+app.get('/api/proposals/num', (req, res) => {
+    totalProposalsCount(req, res);
 });
 
 app.route('/api/proposals')
