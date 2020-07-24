@@ -18,6 +18,7 @@ const authenResults = require('./db_connection').authenResults;
 const bodyParser = require('body-parser');
 const app = express();
 
+app.use(express.static('dist'));
 app.use(morgan('common'));
 app.use(cors());
 

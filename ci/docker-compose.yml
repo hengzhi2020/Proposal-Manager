@@ -24,7 +24,7 @@ services:
     #command: build
     env_file: .env.production
     ports:
-      - "7000:3000"
+      - "7000:8000"
     configs:
       - source: webpack-config
         target: /app/webpack.config.js
