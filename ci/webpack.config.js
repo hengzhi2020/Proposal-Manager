@@ -32,17 +32,6 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: 3000,
-    open: true,
-    historyApiFallback: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-      },
-    },
-  },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
@@ -51,7 +40,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
-      'process.env.PUBLIC_URL': '"http://localhost:7000"',
+      'process.env.PUBLIC_URL': '"https://vhapthapp5gen.v04.med.va.gov/dpm"',
     }),
   ]
 };

@@ -138,9 +138,3 @@ UPDATE CASCADE
 
 ) ENGINE = InnoDB;
 
-INSERT IGNORE INTO reviewers (ldap_username, first_name, last_name) VALUES
-('vhabhsgieraa', 'Aaron', 'Giera'),
-('vhabhsliangk', 'Kuei-Cheng', 'Liang'),
-('vhabhshewitm', 'Mark', 'Hewitt'),
-('vhabhshsiehp', 'Paul', 'Hsieh');
-
