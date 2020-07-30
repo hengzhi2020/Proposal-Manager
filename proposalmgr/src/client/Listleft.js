@@ -3,7 +3,8 @@ import { Input, Dropdown } from 'semantic-ui-react';
 import './Card.css';
 import './Listleft.css';
 import './ModalCreate';
-import vaLogoSmall from './VA_Logo_smallJPG_.jpg';
+// import vaLogoSmall from './VA_Logo_smallJPG_.jpg';
+import vaLogoSmall from './VA_small_logo.jpg';
 
 const searchOptions = [
     {
@@ -21,9 +22,9 @@ const searchOptions = [
 export default function List(props) {
     return (
         <section className='List'>
-            <div className='Logo'>
-                <img src={vaLogoSmall} alt="VA Logo" />
-            </div>
+
+            <img src={vaLogoSmall} alt="VA Logo" className='Logo' />
+
 
             <header className='List-header'>
                 <h2>Proposal Management and Reviewing Platform</h2>
