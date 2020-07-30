@@ -40,26 +40,12 @@ class ModalCreate extends React.Component {
             },
             body: JSON.stringify(createdata)
         })
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('HTTP error, status = ' + response.status);
-                }
-                console.log(response);
-            });
-
-        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(createdata)
-        })
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('HTTP error - to reviewdata table, status = ' + response.status);
-                }
-                console.log(response);
-            });
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('HTTP error, status = ' + response.status);
+            }
+            console.log(response);
+        });
 
         alert('You have successfully created a new Proposal');
     }

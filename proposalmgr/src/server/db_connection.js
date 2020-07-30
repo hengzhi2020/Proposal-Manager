@@ -198,12 +198,35 @@ exports.getReviewReports = function (req, res) {
 }
 
 exports.createProposal = function (req, res) {
-    con.query("INSERT INTO proposals (title, VA_sponsor, support, project_presenter, stage, cycle, status) VALUES(?,?,?,?,?,?,?)",
-        [req.body.title, req.body.VA_sponsor, req.body.support, req.body.project_presenter, req.body.stage, req.body.cycle, req.body.status],
+    con.query(`
+        START TRANSACTION;
+        INSERT INTO proposals (
+            title, VA_sponsor, support, project_presenter,
+            stage, cycle, status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+        INSERT INTO reviewdata (
+            proposal_id, reviewer_id, business_comms,
+            feasibility_comms, resources_comms, commitment_comms,
+            constraints_comms, overall_comms
+        )
+        SELECT last_insert_id(), reviewers.id, ?, ?, ?, ?, ?, ?
+        FROM reviewers;
+        COMMIT;
+        `,
+        [
+            // proposals insert
+            req.body.title, req.body.VA_sponsor, req.body.support,
+            req.body.project_presenter, req.body.stage, req.body.cycle,
+            req.body.status,
+            // reviewdata insert
+            '_', '_', '_', '_', '_', '_',
+        ],
         (err, result) => {
             if (err) { console.log(err) };
-            console.log('Created one proposal record');
-        });
+            console.log('Created one proposal record and associated review data');
+        }
+    );
 }
 
 exports.updateProposal = function (req, res) {
@@ -230,21 +253,6 @@ exports.deleteProposal = function (req, res) {
             console.log('Updated one proposal record');
         });
 }
-
-exports.createRowsForEachReviewer = function (req, res) {
-
-    for (let i = req.body.reviewerIdStart; i <= req.body.reviewerIdEnd; i++) {
-        con.query("INSERT INTO reviewdata (proposal_id, reviewer_id, business_comms, feasibility_comms, resources_comms, commitment_comms, constraints_comms, overall_comms) VALUES(?,?,?,?,?,?,?,?)",
-            [req.body.maxProposalId + 1, i, '_', '_', '_', '_', '_', '_'],
-            (err, result) => {
-                if (err) { console.log(err) };
-                console.log('Successfully Created - initial record-rows for each reviewer');
-            }
-        );
-    }
-
-}
-
 
 exports.saveReviewData = function (req, res) {
 
