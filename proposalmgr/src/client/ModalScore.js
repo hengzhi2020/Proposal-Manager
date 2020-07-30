@@ -11,6 +11,7 @@ import CommAdd4 from './CommAdd4';
 import CommAdd5 from './CommAdd5';
 import CommAdd6 from './CommAdd6';
 import CommAdd7 from './CommSummary7';
+import fetchApi from './fetchApi.js';
 
 class ModalScore extends React.Component {
 
@@ -127,7 +128,7 @@ class ModalScore extends React.Component {
             action: 'savereview',
         };
 
-        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
+        fetchApi(`/api/reviewdata`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -165,7 +166,7 @@ class ModalScore extends React.Component {
 
         console.log('submit__ reviewdata -to- server ==> ', reviewdata);
 
-        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
+        fetchApi(`/api/reviewdata`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

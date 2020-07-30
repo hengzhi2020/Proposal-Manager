@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import './App.css';
 import App from './App';
+import fetchApi from './fetchApi.js';
 
 
 class Login extends Component {
@@ -22,7 +23,7 @@ class Login extends Component {
         }
       //  console.log("Login data before Submit ", loginData);
 
-        fetch(`${process.env.PUBLIC_URL}/api/loginData`, {
+        fetchApi(`/api/loginData`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +41,7 @@ class Login extends Component {
 
     getAuthenGoToWebpage = (e) => {
 
-        fetch(`${process.env.PUBLIC_URL}/api/loginData`)
+        fetchApi(`/api/loginData`)
             .then(response => response.json())
             .then(authenResults => {
                 this.setState({

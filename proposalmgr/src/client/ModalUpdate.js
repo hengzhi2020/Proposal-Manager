@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, Modal } from 'semantic-ui-react';
 import './Modal.css';
+import fetchApi from './fetchApi.js';
 
 class ModalUpdate extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class ModalUpdate extends React.Component {
         };
         console.log('updated data for POST: ', updatedata);
 
-        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
+        fetchApi(`/api/proposals`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

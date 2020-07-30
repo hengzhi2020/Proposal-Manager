@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, Modal } from 'semantic-ui-react';
 import './Modal.css';
+import fetchApi from './fetchApi.js';
 
 class ModalCreate extends React.Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class ModalCreate extends React.Component {
         };
         console.log('created data for POST: ', createdata);
 
-        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
+        fetchApi(`/api/proposals`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +48,7 @@ class ModalCreate extends React.Component {
                 console.log(response);
             });
 
-        fetch(`${process.env.PUBLIC_URL}/api/reviewdata`, {
+        fetchApi(`/api/reviewdata`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

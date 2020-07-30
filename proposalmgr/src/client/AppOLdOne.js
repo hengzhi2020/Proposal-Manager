@@ -8,6 +8,7 @@ import ModalDelete from './ModalDelete';
 import ModalScore from './ModalScore';
 import ModalReport from './ModalReport';
 import ModalSearch from './ModalSearch';
+import fetchApi from './fetchApi.js';
 
 class App extends Component {
   constructor(props) {
@@ -286,7 +287,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`${process.env.PUBLIC_URL}/api/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
+    fetchApi(`/api/proposals?pageSize=${pageSize}&pageNumber=${pageNumber}`)
       .then(response => response.json())
       .then(mypro => {
         this.setState({
@@ -305,7 +306,7 @@ class App extends Component {
       searched_pls: null,
     });
 
-    fetch(`${process.env.PUBLIC_URL}/api/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
+    fetchApi(`/api/proposals/search?searchTitle=${searchTitle}&searchDate=${searchDate}&searchCombine=${searchCombine}`)
       .then(response => response.json())
       .then(mysearch => {
         this.setState({
@@ -320,7 +321,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`${process.env.PUBLIC_URL}/api/reviewdata`)
+    fetchApi(`/api/reviewdata`)
       .then(response => response.json())
       .then(myreview => {
         this.setState({
@@ -336,7 +337,7 @@ class App extends Component {
       proposals: null,
       //  loading: true
     })
-    fetch(`${process.env.PUBLIC_URL}/api/reviewers`)
+    fetchApi(`/api/reviewers`)
       .then(response => response.json())
       .then(onereviewer => {
         this.setState({

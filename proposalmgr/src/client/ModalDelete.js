@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, Modal } from 'semantic-ui-react';
 import './Modal.css';
+import fetchApi from './fetchApi.js';
 
 class ModalDelete extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class ModalDelete extends React.Component {
             };
             console.log('deleted data for POST: ', deletedata);
     
-            fetch(`/api/proposals`, {
+            fetchApi(`/api/proposals`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
@@ -46,7 +47,7 @@ class ModalDelete extends React.Component {
             title: 'DELETED__ ' + this.state.title,
         };
 
-        fetch(`${process.env.PUBLIC_URL}/api/proposals`, {
+        fetchApi(`/api/proposals`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
