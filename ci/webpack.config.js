@@ -9,6 +9,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/client/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
+    publicPath: 'https://vhapthapp5gen.v04.med.va.gov/dpm/',
     filename: 'bundle.js',
   },
   module: {

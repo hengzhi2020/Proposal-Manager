@@ -1,4 +1,4 @@
-FROM node:11.10.0
+FROM node:14.8.0
 
 RUN wget http://aia.pki.va.gov/PKI/AIA/VA/VA-Internal-S2-RCA1-v1.cer && \
     openssl x509 -inform der -in VA-Internal-S2-RCA1-v1.cer -out VA.pem && \
@@ -12,13 +12,13 @@ RUN apt-get update && \
     apt install -y libglu1 libxi6 libgconf-2-4 && \
     ldconfig
 
-COPY package.json /app
-COPY package-lock.json /app
+COPY yarn.lock package.json /app/
 
-RUN npm install
+RUN yarn install
 COPY . /app
+RUN yarn run build
 
 EXPOSE 8000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
 
