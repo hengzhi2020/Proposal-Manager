@@ -1,140 +1,142 @@
-.Scoring_temp_pos{
-    background-color:#ccffcc;
-    position: relative;
-    margin:auto;
-    padding:5px;
-    font-weight: bold;
-    font-size:1.5rem;
-    width: 49%;
-    height:400px;
-    float: left;
-    line-height:1.1em;
+.Scoring_temp_pos {
+  background-color: #ccffcc;
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 49%;
+  height: 400px;
+  float: left;
+  line-height: 1.1em;
 }
-.Scoring_temp_neg{
-    background-color:#ffcccc;
-    position: relative;
-    margin:auto;
-    padding:5px;
-    font-weight: bold;
-    font-size:1.5rem;
-    width: 49%;
-    height:400px;
-    float: left;
-    line-height:1.1em;
+.Scoring_temp_neg {
+  background-color: #ffcccc;
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 49%;
+  height: 400px;
+  float: left;
+  line-height: 1.1em;
 }
-.Scoring_Comm_right{
-    position:relative;
-    margin:auto;
-    padding:5px;
-    font-weight: bold;
-    font-size:1.5rem;
-    width: 48%;
-    height: 400px;
-    float: right;
-    line-height:1.1em;
+.Scoring_Comm_right {
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 48%;
+  height: 400px;
+  float: right;
+  line-height: 1.1em;
 }
-#overallscore{
-    background-color:#00ff00;
-    color: black;
+#overallscore {
+  background-color: #00ff00;
+  color: black;
 }
-.Report_left{
-    position:relative;
-    margin-left:2px;
-    padding:5px;
-    font-size:1.3rem;
-    width: 24%;
-    height: 400px;
-    line-height:1.1em;
-    float:left;
+.Report_left {
+  position: relative;
+  margin-left: 2px;
+  padding: 5px;
+  font-size: 1.3rem;
+  width: 24%;
+  height: 400px;
+  line-height: 1.1em;
+  float: left;
 }
-.Comm_6_left{
-    position:relative;
-    margin-left:2px;
-    padding:5px;
-    font-size:1.3rem;
-    width: 40%;
-    height: 400px;
-    line-height:1.1em;
-    float:left;
+.Comm_6_left {
+  position: relative;
+  margin-left: 2px;
+  padding: 5px;
+  font-size: 1.3rem;
+  width: 40%;
+  height: 400px;
+  line-height: 1.1em;
+  float: left;
 }
-.Comm_6_middle{
-    position:relative;
-    margin-left:10px;
-    padding:5px;
-    font-size:1.3rem;
-    width: 16%;
-    height: 400px;
-    line-height:1.1em;
-    float:left;
+.Comm_6_middle {
+  position: relative;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 1.3rem;
+  width: 16%;
+  height: 400px;
+  line-height: 1.1em;
+  float: left;
 }
-.Comm_6_right{
-    position:relative;
-    margin-left:5px;
-    padding:5px;
-    font-size:1.3rem;
-    width: 42%;
-    height: 400px;
-    line-height:1.1em;
-    float:left;
+.Comm_6_right {
+  position: relative;
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 1.3rem;
+  width: 42%;
+  height: 400px;
+  line-height: 1.1em;
+  float: left;
 }
-#Comm_textarea6{
-    background-color: rgb(234, 241, 201);
-    color:black;
-    font-size: 1.5rem;
+#Comm_textarea6 {
+  background-color: rgb(234, 241, 201);
+  color: black;
+  font-size: 1.5rem;
 }
-.Report_right{
-    position:relative;
-    margin-right:2px;
-    padding:5px;
-    font-size:1.3rem;
-    width: 75%;
-    height: 385px;
-    overflow-y: scroll;
-    line-height:1.1em;
-    float:right;
+.Report_right {
+  position: relative;
+  margin-right: 2px;
+  padding: 5px;
+  font-size: 1.3rem;
+  width: 75%;
+  height: 385px;
+  overflow-y: scroll;
+  line-height: 1.1em;
+  float: right;
 }
-#live-data-comm{ 
-    background-color:#ccffcc;
-    height: 100px;
+#live-data-comm {
+  background-color: #ccffcc;
+  height: 100px;
 }
-.reportprint-tbl{
-    padding: 20px;
-    background-color: #ffffe6;
+.reportprint-tbl {
+  padding: 20px;
+  background-color: #ffffe6;
 }
-
-.score_neg_label{
-    background-color: blue;
-}
-.radioitems{
-    padding:8px;
-    font-size:2rem;
-    line-height:1em;
-}
-.radiotitle{
-    padding:20px;
-    padding-left:8px;
-    padding-top:1px;
-}
-#textlabel{
-    color:blue;
-    font-size: 1.3rem;
-}
-h3{
-    padding-top: 15px;
-    padding-left:8px;
-    color: #666699;
-}
-#report_title{
-   color: blue;
-   margin-bottom: 30px;
-}
-.searcheddisplay{
-    overflow-y: scroll;
-    height: 680px;
-}
-.reviewreportdisplayscroll{
-    overflow-y: scroll;
-    height: 680px;
+.reportprint-tbl-score {
+  color: blue;
+  background-color: #ffffe6;
 }
 
-
+.score_neg_label {
+  background-color: blue;
+}
+.radioitems {
+  padding: 8px;
+  font-size: 2rem;
+  line-height: 1em;
+}
+.radiotitle {
+  padding: 20px;
+  padding-left: 8px;
+  padding-top: 1px;
+}
+#textlabel {
+  color: blue;
+  font-size: 1.3rem;
+}
+h3 {
+  padding-top: 15px;
+  padding-left: 8px;
+  color: #666699;
+}
+#report_title {
+  color: blue;
+  margin-bottom: 30px;
+}
+.searcheddisplay {
+  overflow-y: scroll;
+  height: 680px;
+}
+.reviewreportdisplayscroll {
+  overflow-y: scroll;
+  height: 680px;
+}
