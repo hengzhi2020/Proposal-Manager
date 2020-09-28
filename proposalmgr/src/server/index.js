@@ -12,8 +12,6 @@ const submitReviewData = require('./db_connection').submitReviewData;
 const getReviewReports = require('./db_connection').getReviewReports;
 const getReviewerInfo = require('./db_connection').getReviewerInfo;
 const getReviewerList = require('./db_connection').getReviewerList;
-const createRowsForEachReviewer = require('./db_connection')
-  .createRowsForEachReviewer;
 const getSearchList = require('./db_connection').getSearchList;
 // const loginValidation = require('./db_connection').loginValidation;
 // const authenResults = require('./db_connection').authenResults;
@@ -70,9 +68,6 @@ app
   .route('/api/reviewdata')
   .get((req, res) => {
     getReviewReports(req, res);
-  })
-  .post((req, res) => {
-    createRowsForEachReviewer(req, res);
   })
   .patch((req, res) => {
     saveReviewData(req, res);
