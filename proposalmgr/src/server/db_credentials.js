@@ -5,4 +5,3 @@ module.exports = {
     database: "Proposals_MRS",
     multipleStatements: true,
 };
-

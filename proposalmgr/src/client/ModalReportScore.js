@@ -3,9 +3,9 @@ import { Modal, Button } from 'semantic-ui-react';
 import './Modal.css';
 import './Scoring_all.css';
 import ReactToPrint from 'react-to-print';
-import ReportToPrint from './ReportToPrint';
+import ReportScoreToPrint from './ReportScoreToPrint';
 
-class ModalReport extends React.Component {
+class ModalReportScore extends React.Component {
   render() {
     return (
       <Modal
@@ -15,8 +15,7 @@ class ModalReport extends React.Component {
         open={this.props.reportClickopen}
       >
         <h2 id="report_title">
-          _____ List of Reviewers' Reports (Scores & Comments) ___ Submitted or
-          Saved only _____
+          _____ List of Reviewers' Scores only _____
           <button
             type="button"
             id="btn-close-report"
@@ -32,7 +31,7 @@ class ModalReport extends React.Component {
             content={() => this.componentRef}
           />
         </h2>
-        <ReportToPrint
+        <ReportScoreToPrint
           reviewdata={this.props.reviewdata}
           reportProposal={this.props.reportProposal}
           ref={(el) => (this.componentRef = el)}
@@ -42,4 +41,4 @@ class ModalReport extends React.Component {
   }
 }
 
-export default ModalReport;
+export default ModalReportScore;

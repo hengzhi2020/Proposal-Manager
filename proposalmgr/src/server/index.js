@@ -11,6 +11,9 @@ const saveReviewData = require('./db_connection').saveReviewData;
 const submitReviewData = require('./db_connection').submitReviewData;
 const getReviewReports = require('./db_connection').getReviewReports;
 const getReviewerInfo = require('./db_connection').getReviewerInfo;
+const getReviewerList = require('./db_connection').getReviewerList;
+const createRowsForEachReviewer = require('./db_connection')
+  .createRowsForEachReviewer;
 const getSearchList = require('./db_connection').getSearchList;
 // const loginValidation = require('./db_connection').loginValidation;
 // const authenResults = require('./db_connection').authenResults;
@@ -37,48 +40,56 @@ app.route('/loginData')
  */
 
 app.get('/api/reviewers', (req, res) => {
-    getReviewerInfo(req, res);
+  getReviewerInfo(req, res);
+});
+
+app.get('/reviewerlist', (req, res) => {
+  getReviewerList(req, res);
 });
 
 app.get('/api/proposals/num', (req, res) => {
-    totalProposalsCount(req, res);
+  totalProposalsCount(req, res);
 });
 
-app.route('/api/proposals')
-    .get((req, res) => {
-        proposalList(req, res);
-    })
-    .post((req, res) => {
-        createProposal(req, res);
-    })
-    .put((req, res) => {
-        updateProposal(req, res);
-    })
-    .patch((req, res) => {
-        deleteProposal(req, res);
-    })
+app
+  .route('/api/proposals')
+  .get((req, res) => {
+    proposalList(req, res);
+  })
+  .post((req, res) => {
+    createProposal(req, res);
+  })
+  .put((req, res) => {
+    updateProposal(req, res);
+  })
+  .patch((req, res) => {
+    deleteProposal(req, res);
+  });
 
-app.route('/api/reviewdata')
-    .get((req, res) => {
-        getReviewReports(req, res);
-    })
-    .patch((req, res) => {
-        saveReviewData(req, res);
-    })
-    .put((req, res) => {
-        submitReviewData(req, res);
-    })
+app
+  .route('/api/reviewdata')
+  .get((req, res) => {
+    getReviewReports(req, res);
+  })
+  .post((req, res) => {
+    createRowsForEachReviewer(req, res);
+  })
+  .patch((req, res) => {
+    saveReviewData(req, res);
+  })
+  .put((req, res) => {
+    submitReviewData(req, res);
+  });
 
 app.get('/api/proposals/search', (req, res) => {
-    getSearchList(req, res);
+  getSearchList(req, res);
 });
 
 app.get('/api/', (req, res) => {
-    console.log(req.url);
-    res.send('Node Express Server: Connected');
+  console.log(req.url);
+  res.send('Node Express Server: Connected');
 });
 
 app.listen(8000, () => {
-    console.log('Node Express Server: started on PORT 8000');
+  console.log('Node Express Server: started on PORT 8000');
 });
-

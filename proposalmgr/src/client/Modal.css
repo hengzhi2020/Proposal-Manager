@@ -1,204 +1,213 @@
 .modal-container {
-    margin-top: 1px;
-    padding: 10px;
-    margin-left: 30px;
-    margin-right:30px;
-    margin-bottom: 20px;
-    position: relative;
- 
+  margin-top: 1px;
+  padding: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
-#modal_create{
-    background-color: #D3D3D3;
-    position:relative;
-    top: 150px;
-    left: 850px;
-    height: 400px;
-    font-size: 1.2rem;
-   
- }
- #modal_update{
-    background-color: #D3D3D3;
-    position:relative;
-    top: 150px;
-    left: 850px;
-    height: 472px;
-    font-size: 1.2rem;
-   
- }
- #modal_delete{
-    background-color: #D3D3D3;
-    position:relative;
-    top: 150px;
-    left: 850px;
-    height: 443px;
-    font-size: 1.2rem;
-   
- }
- #modal_score{
-    background-color: #D3D3D3;
-    margin-left:2px;
-    position:relative;
-    top: 30px;
-    font-size: 1.2rem;
-    height: 750px;
- }
- #modal_report{
-    background-color: #D3D3D3;
-    position: relative;
-    top: -15px;
-    left: 400px;
-    font-size: 1.2rem;
-    padding: 40px;
-   
- }
-.scoring-comments{
-    width: 100%;
-    height: 520px;
-    background-color: white;
-    font-size: 2rem;
-  
+#modal_create {
+  background-color: #d3d3d3;
+  position: relative;
+  top: 150px;
+  left: 850px;
+  height: 400px;
+  font-size: 1.2rem;
 }
-.tabs_all{
-    background-color: #ffff99;
-    position:relative;
-    color: blue;
-    font-size: 1.2rem;
-    width: 98%;
-    margin: auto;
-    
+#modal_update {
+  background-color: #d3d3d3;
+  position: relative;
+  top: 150px;
+  left: 850px;
+  height: 472px;
+  font-size: 1.2rem;
 }
-.menuitems{
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-color: #66ff66;
-    padding:5px;
-    padding-left:10px;
-    padding-right:10px;
-    border-radius:5px;
-    
+#modal_delete {
+  background-color: #d3d3d3;
+  position: relative;
+  top: 150px;
+  left: 850px;
+  height: 443px;
+  font-size: 1.2rem;
 }
-#menuitem5{
-   font-size: 1.3rem;
-   font-weight: bold;
-   color:white;
-   background-color:grey;
-   padding:5px;
-   padding-left:10px;
-   padding-right:10px;
-   border-radius:5px;
+#modal_score {
+  background-color: #d3d3d3;
+  margin-left: 2px;
+  position: relative;
+  top: 30px;
+  font-size: 1.2rem;
+  height: 750px;
 }
-#menuitem7{
-    font-size: 1.3rem;
-    font-weight: bold;
-    color:white;
-    background-color:black;
-    padding:5px;
-    padding-left:10px;
-    padding-right:10px;
-    border-radius:5px;
+#modal_report {
+  background-color: #d3d3d3;
+  position: relative;
+  top: -15px;
+  left: 400px;
+  font-size: 1.2rem;
+  padding: 40px;
 }
-.score_comm_btns{
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 50px;
-
+.scoring-comments {
+  width: 100%;
+  height: 520px;
+  background-color: white;
+  font-size: 2rem;
 }
-#btn-save{
-   background-color:purple;
-   color:white;
+.tabs_all {
+  background-color: #ffff99;
+  position: relative;
+  color: blue;
+  font-size: 1.2rem;
+  width: 98%;
+  margin: auto;
 }
-#btn-save-scoring{
-   background-color:purple;
-   color:white;
+.menuitems {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #66ff66;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
 }
-#btn-submit{
-   background-color: blue;
-   color:white;
-   margin-left:210px;
+#menuitem5 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: grey;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
 }
-#btn-submit-scoring{
-   background-color: blue;
-   color:white;
-   margin-left:50px;
-   margin-right:-10px;
+#menuitem7 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
 }
-#btn-close{
-    background-color: red;
-    color:white;
-    margin-left:100px;
- }
- #btn-close-scoring{
-   background-color: red;
-   color:white;
-   margin-left:65px;
+.score_comm_btns {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+#btn-save {
+  background-color: purple;
+  color: white;
+}
+#btn-save-scoring {
+  background-color: purple;
+  color: white;
+}
+#btn-submit {
+  background-color: blue;
+  color: white;
+  margin-left: 210px;
+}
+#btn-submit-scoring {
+  background-color: blue;
+  color: white;
+  margin-left: 50px;
+  margin-right: -10px;
+}
+#btn-close {
+  background-color: red;
+  color: white;
+  margin-left: 100px;
+}
+#btn-close-scoring {
+  background-color: red;
+  color: white;
+  margin-left: 65px;
 }
 
- #btn-print-report{
-   background-color: black;
-   color:white;
-   float: right;
+#btn-close-list-reviewers {
+  background-color: red;
+  color: white;
+  float: right;
 }
- #btn-close-report{
-    background-color: red;
-    color:white;
-    float: right;
-    margin-left:20px;
-    margin-right:10px;
- }
- #btn-print{
-    background-color: blue;
-    color:white;
-    margin-left: 15px;
-    margin-right: 20px;
-    float: right;
- }
- #btn-btn-report{
-   background-color: #33ff77;
-   color:blue;
+
+#btn-print-report {
+  background-color: black;
+  color: white;
+  float: right;
 }
- .tbl-head-width{
-     margin: auto;
-     width: 13%;
- }
- .dropdown-selections{
-    position: relative;
-    display: flex;
-    margin-top:-15px;
-   
- }
+#btn-close-report {
+  background-color: red;
+  color: white;
+  float: right;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+#btn-print {
+  background-color: blue;
+  color: white;
+  margin-left: 15px;
+  margin-right: 20px;
+  float: right;
+}
+#btn-btn-report {
+  background-color: #33ff77;
+  color: blue;
+}
+.tbl-head-width {
+  margin: auto;
+  width: 13%;
+}
+.tbl-head-score-width {
+  margin: -11px;
+  height: 1px;
+  width: 13%;
+  color: blue;
+  font-weight: bold;
+}
+.tbl-head-score-width-num {
+  margin: -11px;
+  height: 1px;
+  width: 13%;
+  color: blue;
+}
+.dropdown-selections {
+  position: relative;
+  display: flex;
+  margin-top: -15px;
+}
 #selectStage-create {
-   height: 50px;
-   width: 100px;
-   margin-top: -15px;
-   margin-right: 50px;
+  height: 50px;
+  width: 100px;
+  margin-top: -15px;
+  margin-right: 50px;
 }
 #selectStage-update {
-   height: 50px;
-   width: 100px;
-   margin-top:-15px;
-   margin-right: 50px;
+  height: 50px;
+  width: 100px;
+  margin-top: -15px;
+  margin-right: 50px;
 }
 #selectCycle-update {
-   height: 50px;
-   width: 100px;
-   margin-top:-15px;
-   margin-right: 50px;
+  height: 50px;
+  width: 100px;
+  margin-top: -15px;
+  margin-right: 50px;
 }
 #selectStatus-create {
-   height: 50px;
-   width: 150px;
-   margin-top: -15px;
-   margin-right: 30px;
+  height: 50px;
+  width: 150px;
+  margin-top: -15px;
+  margin-right: 30px;
 }
 #selectStatus-update {
-   height: 50px;
-   width: 150px;
-   margin-top:-15px;
-   margin-right: 30px;
+  height: 50px;
+  width: 150px;
+  margin-top: -15px;
+  margin-right: 30px;
 }
 /*
 #selectReviewers {
@@ -206,42 +215,41 @@
    width: 150px;
 }
 */
-#selectstage-title{
-   color:black;
-   font-size: 1.2rem;
-   font-weight: bold;
-   margin-right: 5px;
-   margin-top: 8px;
+#selectstage-title {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-top: 8px;
 }
-#selectcycle-title{
-   color:black;
-   font-size: 1.2rem;
-   font-weight: bold;
-   margin-right: 5px;
-   margin-top: 8px;
+#selectcycle-title {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-top: 8px;
 }
-#selectstatus-title{
-   color:black;
-   font-size: 1.2rem;
-   font-weight: bold;
-   margin-right: 5px;
-   margin-left: 1px;
-   margin-top: 8px;
+#selectstatus-title {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 1px;
+  margin-top: 8px;
 }
-#selectreviewers-title{
-   color:black;
-   font-size: 1.2rem;
-   font-weight: bold;
-   margin-right: 5px;
-   margin-top: 8px;
-   padding:7px;
-   position: relative;
-   top:-7px;
+#selectreviewers-title {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-top: 8px;
+  padding: 7px;
+  position: relative;
+  top: -7px;
 }
 #selectReviewers-box {
-   height: 50px;
-   width: 518px;
-   margin-top:-28px;
-   margin-bottom:20px;
-
+  height: 50px;
+  width: 518px;
+  margin-top: -28px;
+  margin-bottom: 20px;
 }
