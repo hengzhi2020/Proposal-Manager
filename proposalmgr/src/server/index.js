@@ -41,7 +41,7 @@ app.get('/api/reviewers', (req, res) => {
   getReviewerInfo(req, res);
 });
 
-app.get('/reviewerlist', (req, res) => {
+app.get('/api/reviewerlist', (req, res) => {
   getReviewerList(req, res);
 });
 

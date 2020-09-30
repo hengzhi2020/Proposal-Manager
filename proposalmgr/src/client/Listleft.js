@@ -42,7 +42,7 @@ export default function List(props) {
 
           <div className="search-choice">
             <span className="searchSelector">
-              Combine Title & Date:{' '}
+              Combine Search with:{' '}
               <Dropdown
                 inline
                 options={searchOptions}
@@ -69,7 +69,7 @@ export default function List(props) {
             id="btn-display"
             onClick={props.reviewerListHandler}
           >
-            List of All Reviewers
+            List of all Reviewers
           </button>
         </div>
 
@@ -81,7 +81,7 @@ export default function List(props) {
 
         <hr />
         <button type="button" className="List-add-button">
-          UserName: {props.ldap_username}
+          Login UserName: {props.ldap_username}
         </button>
       </div>
     </section>

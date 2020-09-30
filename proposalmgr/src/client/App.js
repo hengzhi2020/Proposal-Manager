@@ -301,9 +301,11 @@ class App extends Component {
       this.props.DATA.username = this.state.reviewerinfo[0].ldap_username;
       // console.log("user_status: ", this.state.reviewerinfo[0].user_status);
       var maxProposalId = 0;
-      if (this.state.proposals != undefined &&
-              this.state.proposals.length > 0) {
-          maxProposalId = this.state.proposals[0].id;
+      if (
+        this.state.proposals !== undefined &&
+        this.state.proposals.length > 0
+      ) {
+        maxProposalId = this.state.proposals[0].id;
       }
       return (
         <main className="App">
@@ -502,9 +504,13 @@ class App extends Component {
         this.setState({
           reviewerlist: reviewerlist,
         });
-        // console.log('All reviewers List == ', this.state.reviewerlist);
+        /* 
+        console.log(
+          'All reviewers List at App.js == ',
+          this.state.reviewerlist
+        );  
+        */
       });
   }
 }
 export default App;
-

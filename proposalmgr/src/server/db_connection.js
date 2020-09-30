@@ -225,7 +225,8 @@ exports.getReviewReports = function (req, res) {
 };
 
 exports.createProposal = function (req, res) {
-    con.query(`
+  con.query(
+    `
         START TRANSACTION;
         INSERT INTO proposals (
             title, VA_sponsor, support, project_presenter,
@@ -241,20 +242,31 @@ exports.createProposal = function (req, res) {
         FROM reviewers;
         COMMIT;
         `,
-        [
-            // proposals insert
-            req.body.title, req.body.VA_sponsor, req.body.support,
-            req.body.project_presenter, req.body.stage, req.body.cycle,
-            req.body.status,
-            // reviewdata insert
-            '_', '_', '_', '_', '_', '_',
-        ],
-        (err, result) => {
-            if (err) { console.log(err) };
-            console.log('Created one proposal record and associated review data');
-        }
-    );
-}
+    [
+      // proposals insert
+      req.body.title,
+      req.body.VA_sponsor,
+      req.body.support,
+      req.body.project_presenter,
+      req.body.stage,
+      req.body.cycle,
+      req.body.status,
+      // reviewdata insert
+      '_',
+      '_',
+      '_',
+      '_',
+      '_',
+      '_',
+    ],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log('Created one proposal record and associated review data');
+    }
+  );
+};
 
 exports.updateProposal = function (req, res) {
   con.query(
